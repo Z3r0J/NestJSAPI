@@ -8,6 +8,7 @@ export class User {
     @Column({name:"Username"})
     username:string;
     @Column({name:"Password"})
+    @Column({select: false})
     password:string;
     @Column('date',{name:"Created"})
     created:Date;

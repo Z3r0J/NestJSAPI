@@ -5,7 +5,9 @@ import { UserController } from './controller/user/user.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entities/user/user.entity';
 import { Message } from './entities/message/message.entity';
-import { UserService } from './services/user/user/user.service';
+import { UserService } from './services/user/user.service';
+import { MessageService } from './services/message/message/message.service';
+import { MessageController } from './controller/message/message.controller';
 
 @Module({
   imports: [
@@ -19,9 +21,9 @@ import { UserService } from './services/user/user/user.service';
       entities: [User,Message],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([User])
+    TypeOrmModule.forFeature([User,Message])
   ],
-  controllers: [AppController, UserController],
-  providers: [AppService, UserService],
+  controllers: [AppController, UserController,MessageController],
+  providers: [AppService, UserService, MessageService],
 })
 export class AppModule {}
