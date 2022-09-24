@@ -1,5 +1,5 @@
 import { Controller, Get, Res, HttpStatus } from '@nestjs/common';
-import { MessageService } from 'src/services/message/message/message.service';
+import { MessageService } from 'src/services/message/message.service';
 
 @Controller('message')
 export class MessageController {
