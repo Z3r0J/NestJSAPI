@@ -13,7 +13,7 @@ export class UserController {
     @Post()
     async create(@Body() createuserDTO:CreateUserDto,@Res() response:any){
         return await this._userServices.createUser(createuserDTO).then(
-            (message)=>{response.status(HttpStatus.CREATED).json(message);
+            (message)=>{response.status(HttpStatus.CREATED).json({message:"The record has been successfully created."});
             }).catch(()=>{
             response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({message:"Error while trying create the user."});
         });
@@ -35,7 +35,7 @@ export class UserController {
     @Get(":id")
     async getById(@Res() response:any,@Param('id') id:number){
         return await this._userServices.getById(id).then(users=>{
-            response.status(HttpStatus.OK).json(users);
+            !users?response.status(HttpStatus.NOT_FOUND).json({message:"Not found"}):response.status(HttpStatus.OK).json(users);
         }).catch(()=>{
             response.status(HttpStatus.NOT_FOUND).json({message:"Not User Found"});
         });
