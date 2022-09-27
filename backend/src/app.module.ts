@@ -13,11 +13,11 @@ import { MessageController } from './controller/message/message.controller';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3308,
+      host: 'containers-us-west-89.railway.app',
+      port: 5924,
       username: 'root',
-      password: 'Jeanp',
-      database: 'firstnestjsapp',
+      password: 'yWeY9dqg5UUZwXR4NMzw',
+      database: 'railway',
       entities: [User,Message],
       synchronize: true,
     }),
